@@ -1,0 +1,1 @@
+{"version":3,"file":"4.32cccf6336713dd4062b.hot-update.js","sources":["webpack:///components/Footer.js"],"sourcesContent":["export default () => (\n  <div>\n    <h3>Footer</h3>\n  </div>\n);\n\n\n\n// WEBPACK FOOTER //\n// components/Footer.js"],"mappings":";;;;;;;;;;AAAA;AAAA;AACA;AAAA;AAAA;AAAA;AAAA;AACA;AAAA;AAAA;AAAA;AAAA;AAFA;;;;A","sourceRoot":""}
