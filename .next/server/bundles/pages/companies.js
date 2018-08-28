@@ -67,49 +67,24 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./components/Footer.js":
+/***/ "./components/CompanyCard.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/Applications/MAMP/htdocs/wordpress-next/components/Footer.js";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("styled-components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_styled_components__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_html_parser__ = __webpack_require__("react-html-parser");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_html_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_html_parser__);
+var _jsxFileName = "/Applications/MAMP/htdocs/wordpress-next/components/CompanyCard.js";
 
-/* harmony default export */ __webpack_exports__["a"] = (function () {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 2
-    }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 3
-    }
-  }, "Footer"));
-});
-
-/***/ }),
-
-/***/ "./components/Header.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link__ = __webpack_require__("next/link");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_link__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_components__ = __webpack_require__("styled-components");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_styled_components__);
-var _jsxFileName = "/Applications/MAMP/htdocs/wordpress-next/components/Header.js";
-
-var _templateObject = /*#__PURE__*/ _taggedTemplateLiteral(["\n  background: ", ";\n  color: white;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 40px;\n  margin-bottom: 40px;\n  & > a {\n    color: rgba(68, 69, 69, 0.6);\n    text-decoration: none;\n    transition: all .3s ease-in-out;\n    &:hover {\n      color: rgba(68, 69, 69, 1);\n    }\n  }\n"]),
-    _templateObject2 = /*#__PURE__*/ _taggedTemplateLiteral(["\n  background: url(", ");\n  background-size: contain;\n  background-repeat: no-repeat;\n  width: 50px;\n  height: 50px;\n"]);
+var _templateObject = /*#__PURE__*/ _taggedTemplateLiteral(["\n  background: url(", ");\n  background-size: cover;\n  flex-grow: 1;\n  min-width: 25%;\n  height: 400px;\n  margin: 10px;\n  transition: all 0.3s ease-in-out;\n  z-index: 2;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  &:hover {\n    transform: scale(1.01);\n    cursor: pointer;\n  }\n  & > h1 {\n    color: #fff;\n    margin: 0;\n  }\n"]);
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -131,95 +106,74 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var Header =
+var CompanyCard =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(Header, _Component);
+  _inherits(CompanyCard, _Component);
 
-  function Header() {
-    _classCallCheck(this, Header);
+  function CompanyCard(props) {
+    var _this;
 
-    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+    _classCallCheck(this, CompanyCard);
+
+    _this = _possibleConstructorReturn(this, (CompanyCard.__proto__ || Object.getPrototypeOf(CompanyCard)).call(this));
+    _this.state = {
+      coverPhoto: props.company['post-meta-fields'].covers[0].split(',')[0]
+    };
+    return _this;
   }
 
-  _createClass(Header, [{
-    key: "renderNavigationMenu",
-    value: function renderNavigationMenu() {
-      return this.props.navigation.map(function (menuItem) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
-          key: menuItem.id,
-          href: "/".concat(menuItem.object_slug),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 8
-          }
-        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 9
-          }
-        }, menuItem.title));
-      });
-    }
-  }, {
+  _createClass(CompanyCard, [{
     key: "render",
     value: function render() {
-      var _props$headerData$acf = this.props.headerData.acf,
-          background = _props$headerData$acf.background,
-          logo = _props$headerData$acf.logo;
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Wrapper, {
-        background: background,
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Card, {
+        background: this.state.coverPhoto,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 17
+          lineNumber: 15
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Logo, {
-        logo: logo,
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 16
         }
-      }), this.renderNavigationMenu());
+      }, __WEBPACK_IMPORTED_MODULE_2_react_html_parser___default()(this.props.company.title.rendered)));
     }
   }]);
 
-  return Header;
+  return CompanyCard;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Header);
-var Wrapper = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.div(_templateObject, function (props) {
+/* harmony default export */ __webpack_exports__["a"] = (CompanyCard);
+var Card = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject, function (props) {
   return props.background;
-});
-var Logo = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.div(_templateObject2, function (props) {
-  return props.logo;
 });
 
 /***/ }),
 
-/***/ "./pages/_app.js":
+/***/ "./pages/companies.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_app__ = __webpack_require__("next/app");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_app__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Header__ = __webpack_require__("./components/Header.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Footer__ = __webpack_require__("./components/Footer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_components__ = __webpack_require__("styled-components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_styled_components__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CompanyCard__ = __webpack_require__("./components/CompanyCard.js");
 
-var _jsxFileName = "/Applications/MAMP/htdocs/wordpress-next/pages/_app.js";
+var _jsxFileName = "/Applications/MAMP/htdocs/wordpress-next/pages/companies.js";
+
+var _templateObject = /*#__PURE__*/ _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n"]),
+    _templateObject2 = /*#__PURE__*/ _taggedTemplateLiteral(["\n  width: 90%;\n  max-width: 1130px;\n  display: flex;\n  justify-content: center;\n  flex-wrap: wrap-reverse;\n"]);
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } } function _next(value) { step("next", value); } function _throw(err) { step("throw", err); } _next(); }); }; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -237,103 +191,73 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
-
-var MyApp =
+var Companies =
 /*#__PURE__*/
-function (_App) {
-  _inherits(MyApp, _App);
+function (_Component) {
+  _inherits(Companies, _Component);
 
-  function MyApp() {
-    _classCallCheck(this, MyApp);
+  function Companies() {
+    _classCallCheck(this, Companies);
 
-    return _possibleConstructorReturn(this, (MyApp.__proto__ || Object.getPrototypeOf(MyApp)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Companies.__proto__ || Object.getPrototypeOf(Companies)).apply(this, arguments));
   }
 
-  _createClass(MyApp, [{
+  _createClass(Companies, [{
+    key: "renderCompanies",
+    value: function renderCompanies() {
+      var companies = this.props.companies;
+      return companies.map(function (company) {
+        return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_CompanyCard__["a" /* default */], {
+          key: company.id,
+          company: company,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 19
+          }
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _props = this.props,
-          Component = _props.Component,
-          pageProps = _props.pageProps,
-          header = _props.header;
-      return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_app__["Container"], {
+      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Container, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 25
         }
-      }, __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Header__["a" /* default */], _extends({}, header, {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(CompanyCardsWrapper, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 26
         }
-      })), __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(Component, _extends({}, pageProps, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 34
-        }
-      })), __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Footer__["a" /* default */], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 35
-        }
-      }));
+      }, this.renderCompanies()));
     }
   }], [{
     key: "getInitialProps",
     value: function () {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
-      __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(_ref) {
-        var Component, ctx, pageProps, menu, header, navItems, headerData;
+      __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee() {
+        var data, companies;
         return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                Component = _ref.Component, ctx = _ref.ctx;
-                pageProps = {};
+                _context.next = 2;
+                return fetch('http://localhost:8888/wordpress-gatsby/wp-json/wp/v2/company');
 
-                if (!Component.getInitialProps) {
-                  _context.next = 6;
-                  break;
-                }
-
+              case 2:
+                data = _context.sent;
                 _context.next = 5;
-                return Component.getInitialProps(ctx);
+                return data.json();
 
               case 5:
-                pageProps = _context.sent;
-
-              case 6:
-                _context.next = 8;
-                return __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default()("http://localhost:8888/wordpress-gatsby/wp-json/wp-api-menus/v2/menus/77");
-
-              case 8:
-                menu = _context.sent;
-                _context.next = 11;
-                return __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default()("http://localhost:8888/wordpress-gatsby/wp-json/acf/v3/theme_styling/866");
-
-              case 11:
-                header = _context.sent;
-                _context.next = 14;
-                return menu.json();
-
-              case 14:
-                navItems = _context.sent;
-                _context.next = 17;
-                return header.json();
-
-              case 17:
-                headerData = _context.sent;
+                companies = _context.sent;
                 return _context.abrupt("return", {
-                  header: {
-                    navigation: navItems.items,
-                    headerData: headerData
-                  },
-                  pageProps: pageProps
+                  companies: companies
                 });
 
-              case 19:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -341,23 +265,25 @@ function (_App) {
         }, _callee, this);
       }));
 
-      return function getInitialProps(_x) {
+      return function getInitialProps() {
         return _getInitialProps.apply(this, arguments);
       };
     }()
   }]);
 
-  return MyApp;
-}(__WEBPACK_IMPORTED_MODULE_1_next_app___default.a);
+  return Companies;
+}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
 
-
+/* harmony default export */ __webpack_exports__["default"] = (Companies);
+var Container = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.section(_templateObject);
+var CompanyCardsWrapper = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.div(_templateObject2);
 
 /***/ }),
 
-/***/ 0:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./pages/_app.js");
+module.exports = __webpack_require__("./pages/companies.js");
 
 
 /***/ }),
@@ -369,31 +295,17 @@ module.exports = require("@babel/runtime/regenerator");
 
 /***/ }),
 
-/***/ "isomorphic-unfetch":
-/***/ (function(module, exports) {
-
-module.exports = require("isomorphic-unfetch");
-
-/***/ }),
-
-/***/ "next/app":
-/***/ (function(module, exports) {
-
-module.exports = require("next/app");
-
-/***/ }),
-
-/***/ "next/link":
-/***/ (function(module, exports) {
-
-module.exports = require("next/link");
-
-/***/ }),
-
 /***/ "react":
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-html-parser":
+/***/ (function(module, exports) {
+
+module.exports = require("react-html-parser");
 
 /***/ }),
 
@@ -405,4 +317,4 @@ module.exports = require("styled-components");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=_app.js.map
+//# sourceMappingURL=companies.js.map

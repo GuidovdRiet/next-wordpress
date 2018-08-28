@@ -16,7 +16,7 @@ class Index extends Component {
     return (
       <div>
         <h1>Batman TV Shows</h1>
-        <ul>{console.log(this.props.data.acf)}</ul>
+        {/* <ul>{console.log(this.props.data.acf)}</ul> */}
       </div>
     );
   }

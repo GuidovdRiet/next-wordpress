@@ -1,5 +1,6 @@
 import App, { Container } from 'next/app';
 import React from 'react';
+import fetch from 'isomorphic-unfetch'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -8,13 +9,18 @@ export default class MyApp extends App {
     let pageProps = {};
     if (Component.getInitialProps)
       pageProps = await Component.getInitialProps(ctx);
-    const res = await fetch(
+    const menu = await fetch(
       `http://localhost:8888/wordpress-gatsby/wp-json/wp-api-menus/v2/menus/77`
     );
-    const navItems = await res.json();
+    const header = await fetch(
+      `http://localhost:8888/wordpress-gatsby/wp-json/acf/v3/theme_styling/866`);
+    const navItems = await menu.json();
+    const headerData = await header.json();
+
     return {
       header: {
         navigation: navItems.items,
+        headerData
       },
       pageProps,
     };
