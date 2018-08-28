@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Layout from '../components/Layout.js';
 import fetch from 'isomorphic-unfetch';
-import Header from '../components/Header';
 
 class Index extends Component {
   static async getInitialProps() {
@@ -16,10 +14,10 @@ class Index extends Component {
 
   render() {
     return (
-      <Layout>
+      <div>
         <h1>Batman TV Shows</h1>
         <ul>{console.log(this.props.data.acf)}</ul>
-      </Layout>
+      </div>
     );
   }
 }
