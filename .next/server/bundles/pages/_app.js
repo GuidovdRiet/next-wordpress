@@ -80,7 +80,8 @@ module.exports =
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 var _jsxFileName = "/Applications/MAMP/htdocs/wordpress-next/components/Footer.js";
 
-/* harmony default export */ __webpack_exports__["a"] = (function () {
+
+var Footer = function Footer() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
@@ -92,7 +93,9 @@ var _jsxFileName = "/Applications/MAMP/htdocs/wordpress-next/components/Footer.j
       lineNumber: 3
     }
   }, "Footer"));
-});
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Footer);
 
 /***/ }),
 
@@ -107,11 +110,6 @@ var _jsxFileName = "/Applications/MAMP/htdocs/wordpress-next/components/Footer.j
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_components__ = __webpack_require__("styled-components");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_styled_components__);
 var _jsxFileName = "/Applications/MAMP/htdocs/wordpress-next/components/Header.js";
-
-var _templateObject = /*#__PURE__*/ _taggedTemplateLiteral(["\n  background: ", ";\n  color: white;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 40px;\n  margin-bottom: 40px;\n  & > a {\n    color: rgba(68, 69, 69, 0.6);\n    text-decoration: none;\n    transition: all .3s ease-in-out;\n    &:hover {\n      color: rgba(68, 69, 69, 1);\n    }\n  }\n"]),
-    _templateObject2 = /*#__PURE__*/ _taggedTemplateLiteral(["\n  background: url(", ");\n  background-size: contain;\n  background-repeat: no-repeat;\n  width: 50px;\n  height: 50px;\n"]);
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -147,6 +145,7 @@ function (_Component) {
     value: function renderNavigationMenu() {
       return this.props.navigation.map(function (menuItem) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
+          prefetch: true,
           key: menuItem.id,
           href: "/".concat(menuItem.object_slug),
           __source: {
@@ -187,10 +186,16 @@ function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["a"] = (Header);
-var Wrapper = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.div(_templateObject, function (props) {
+var Wrapper = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.div.withConfig({
+  displayName: "Header__Wrapper",
+  componentId: "s1mpryw7-0"
+})(["background:", ";color:white;display:flex;justify-content:space-between;align-items:center;padding:20px 40px;margin-bottom:40px;& > a{color:rgba(68,69,69,0.6);text-decoration:none;transition:all .3s ease-in-out;&:hover{color:rgba(68,69,69,1);}}"], function (props) {
   return props.background;
 });
-var Logo = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.div(_templateObject2, function (props) {
+var Logo = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.div.withConfig({
+  displayName: "Header__Logo",
+  componentId: "s1mpryw7-1"
+})(["background:url(", ");background-size:contain;background-repeat:no-repeat;width:50px;height:50px;"], function (props) {
   return props.logo;
 });
 
@@ -201,7 +206,6 @@ var Logo = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.div(_templa
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_app__ = __webpack_require__("next/app");
@@ -306,12 +310,12 @@ function (_App) {
 
               case 6:
                 _context.next = 8;
-                return __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default()("http://localhost:8888/wordpress-gatsby/wp-json/wp-api-menus/v2/menus/77");
+                return __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default()("http://headless.consumentenwebsite.nl/wp-json/wp-api-menus/v2/menus/68");
 
               case 8:
                 menu = _context.sent;
                 _context.next = 11;
-                return __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default()("http://localhost:8888/wordpress-gatsby/wp-json/acf/v3/theme_styling/866");
+                return __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default()("http://headless.consumentenwebsite.nl/wp-json/acf/v3/theme_styling/81");
 
               case 11:
                 header = _context.sent;
@@ -350,7 +354,7 @@ function (_App) {
   return MyApp;
 }(__WEBPACK_IMPORTED_MODULE_1_next_app___default.a);
 
-
+/* harmony default export */ __webpack_exports__["default"] = (MyApp);
 
 /***/ }),
 

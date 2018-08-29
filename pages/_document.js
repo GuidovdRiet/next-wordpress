@@ -1,12 +1,12 @@
 import Document, { Head, Main, NextScript } from 'next/document';
-import styledNormalize from 'styled-normalize'
 import { ServerStyleSheet, injectGlobal } from 'styled-components';
+import styledNormalize from 'styled-normalize'
 
 injectGlobal`
   ${styledNormalize}
 `;
 
-export default class MyCustomDocument extends Document {
+class MyCustomDocument extends Document {
   static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
     const page = renderPage(App => props =>
@@ -20,7 +20,7 @@ export default class MyCustomDocument extends Document {
     return (
       <html>
         <Head>
-          <title>My Page Title</title>
+          <title>Chainels | WP demo</title>
           {this.props.styleTags}
         </Head>
         <body>
@@ -31,3 +31,5 @@ export default class MyCustomDocument extends Document {
     );
   }
 }
+
+export default MyCustomDocument;

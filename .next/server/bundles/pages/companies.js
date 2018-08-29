@@ -82,11 +82,9 @@ module.exports =
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_styled_components__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_html_parser__ = __webpack_require__("react-html-parser");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_html_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_html_parser__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link__ = __webpack_require__("next/link");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_next_link__);
 var _jsxFileName = "/Applications/MAMP/htdocs/wordpress-next/components/CompanyCard.js";
-
-var _templateObject = /*#__PURE__*/ _taggedTemplateLiteral(["\n  background: url(", ");\n  background-size: cover;\n  flex-grow: 1;\n  min-width: 25%;\n  height: 400px;\n  margin: 10px;\n  transition: all 0.3s ease-in-out;\n  z-index: 2;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  &:hover {\n    transform: scale(1.01);\n    cursor: pointer;\n  }\n  & > h1 {\n    color: #fff;\n    margin: 0;\n  }\n"]);
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -101,6 +99,7 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -126,18 +125,28 @@ function (_Component) {
   _createClass(CompanyCard, [{
     key: "render",
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Card, {
+      var company = this.props.company;
+      var companyTitle = company.title.rendered.companyTitle;
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_next_link___default.a, {
+        as: "/companies/".concat(company.id),
+        href: "/companies/".concat(company.id),
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Card, {
+        prefetch: true,
         background: this.state.coverPhoto,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 15
+          lineNumber: 19
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 16
+          lineNumber: 20
         }
-      }, __WEBPACK_IMPORTED_MODULE_2_react_html_parser___default()(this.props.company.title.rendered)));
+      }, __WEBPACK_IMPORTED_MODULE_2_react_html_parser___default()(companyTitle))));
     }
   }]);
 
@@ -145,7 +154,10 @@ function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["a"] = (CompanyCard);
-var Card = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject, function (props) {
+var Card = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div.withConfig({
+  displayName: "CompanyCard__Card",
+  componentId: "s1tqt26-0"
+})(["background:url(", ");background-size:cover;flex-grow:1;min-width:25%;height:400px;margin:10px;transition:all 0.3s ease-in-out;z-index:2;display:flex;justify-content:center;align-items:center;&:hover{transform:scale(1.01);cursor:pointer;}& > h1{color:#fff;margin:0;}"], function (props) {
   return props.background;
 });
 
@@ -165,11 +177,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CompanyCard__ = __webpack_require__("./components/CompanyCard.js");
 
 var _jsxFileName = "/Applications/MAMP/htdocs/wordpress-next/pages/companies.js";
-
-var _templateObject = /*#__PURE__*/ _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n"]),
-    _templateObject2 = /*#__PURE__*/ _taggedTemplateLiteral(["\n  width: 90%;\n  max-width: 1130px;\n  display: flex;\n  justify-content: center;\n  flex-wrap: wrap-reverse;\n"]);
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -244,7 +251,7 @@ function (_Component) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return fetch('http://localhost:8888/wordpress-gatsby/wp-json/wp/v2/company');
+                return fetch('http://headless.consumentenwebsite.nl/wp-json/wp/v2/company');
 
               case 2:
                 data = _context.sent;
@@ -275,8 +282,14 @@ function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Companies);
-var Container = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.section(_templateObject);
-var CompanyCardsWrapper = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.div(_templateObject2);
+var Container = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.section.withConfig({
+  displayName: "companies__Container",
+  componentId: "s1bf7nh6-0"
+})(["display:flex;justify-content:center;"]);
+var CompanyCardsWrapper = __WEBPACK_IMPORTED_MODULE_2_styled_components___default.a.div.withConfig({
+  displayName: "companies__CompanyCardsWrapper",
+  componentId: "s1bf7nh6-1"
+})(["width:90%;max-width:1130px;display:flex;justify-content:center;flex-wrap:wrap-reverse;"]);
 
 /***/ }),
 
@@ -292,6 +305,13 @@ module.exports = __webpack_require__("./pages/companies.js");
 /***/ (function(module, exports) {
 
 module.exports = require("@babel/runtime/regenerator");
+
+/***/ }),
+
+/***/ "next/link":
+/***/ (function(module, exports) {
+
+module.exports = require("next/link");
 
 /***/ }),
 

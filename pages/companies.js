@@ -5,7 +5,7 @@ import CompanyCard from '../components/CompanyCard';
 class Companies extends Component {
   static async getInitialProps() {
     const data = await fetch(
-      'http://localhost:8888/wordpress-gatsby/wp-json/wp/v2/company'
+      'http://headless.consumentenwebsite.nl/wp-json/wp/v2/company'
     );
     const companies = await data.json();
     return {

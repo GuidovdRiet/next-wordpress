@@ -77,15 +77,14 @@ module.exports =
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MyCustomDocument; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_document__ = __webpack_require__("next/document");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_document___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_document__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_normalize__ = __webpack_require__("styled-normalize");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_normalize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_styled_normalize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_styled_components__ = __webpack_require__("styled-components");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_styled_components__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_components__ = __webpack_require__("styled-components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_styled_components__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_styled_normalize__ = __webpack_require__("styled-normalize");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_styled_normalize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_styled_normalize__);
 var _jsxFileName = "/Applications/MAMP/htdocs/wordpress-next/pages/_document.js";
 
 var _templateObject = /*#__PURE__*/ _taggedTemplateLiteral(["\n  ", "\n"]);
@@ -117,7 +116,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-Object(__WEBPACK_IMPORTED_MODULE_3_styled_components__["injectGlobal"])(_templateObject, __WEBPACK_IMPORTED_MODULE_2_styled_normalize___default.a);
+Object(__WEBPACK_IMPORTED_MODULE_2_styled_components__["injectGlobal"])(_templateObject, __WEBPACK_IMPORTED_MODULE_3_styled_normalize___default.a);
 
 var MyCustomDocument =
 /*#__PURE__*/
@@ -148,7 +147,7 @@ function (_Document) {
           fileName: _jsxFileName,
           lineNumber: 23
         }
-      }, "My Page Title"), this.props.styleTags), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("body", {
+      }, "Chainels | WP demo"), this.props.styleTags), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("body", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 26
@@ -169,7 +168,7 @@ function (_Document) {
     key: "getInitialProps",
     value: function getInitialProps(_ref) {
       var renderPage = _ref.renderPage;
-      var sheet = new __WEBPACK_IMPORTED_MODULE_3_styled_components__["ServerStyleSheet"]();
+      var sheet = new __WEBPACK_IMPORTED_MODULE_2_styled_components__["ServerStyleSheet"]();
       var page = renderPage(function (App) {
         return function (props) {
           return sheet.collectStyles(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(App, _extends({}, props, {
@@ -190,7 +189,7 @@ function (_Document) {
   return MyCustomDocument;
 }(__WEBPACK_IMPORTED_MODULE_1_next_document___default.a);
 
-
+/* harmony default export */ __webpack_exports__["default"] = (MyCustomDocument);
 
 /***/ }),
 

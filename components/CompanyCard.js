@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import ReactHtmlParser from 'react-html-parser';
+import Link from 'next/link';
 
 class CompanyCard extends Component {
   constructor(props) {
     super();
     this.state = {
-      coverPhoto: props.company['post-meta-fields'].covers[0].split(',')[0]
+      coverPhoto: props.company['post-meta-fields'].covers[0].split(',')[0],
     };
   }
 
   render() {
+    const { company } = this.props;
+    const { companyTitle } = company.title.rendered;
     return (
-      <Card background={this.state.coverPhoto}>
-        <h1>{ReactHtmlParser(this.props.company.title.rendered)}</h1>
-      </Card>
+      <Link as={`/companies/${company.id}`} href={`/companies/${company.id}`}>
+        <Card prefetch background={this.state.coverPhoto}>
+          <h1>{ReactHtmlParser(companyTitle)}</h1>
+        </Card>
+      </Link>
     );
   }
 }

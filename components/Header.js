@@ -5,7 +5,7 @@ import styled from 'styled-components';
 class Header extends Component {
   renderNavigationMenu() {
     return this.props.navigation.map(menuItem => (
-      <Link key={menuItem.id} href={`/${menuItem.object_slug}`}>
+      <Link prefetch key={menuItem.id} href={`/${menuItem.object_slug}`}>
         <a>{menuItem.title}</a>
       </Link>
     ));

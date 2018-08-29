@@ -19,5 +19,8 @@
     "react-html-parser": "^2.0.2",
     "styled-components": "^3.4.5",
     "styled-normalize": "^8.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.5.1"
   }
 }
