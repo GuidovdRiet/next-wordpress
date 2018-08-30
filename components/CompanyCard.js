@@ -13,11 +13,15 @@ class CompanyCard extends Component {
 
   render() {
     const { company } = this.props;
-    const { companyTitle } = company.title.rendered;
+    const companyTitle = ReactHtmlParser(company.title.rendered);
+
     return (
-      <Link as={`/companies/${company.id}`} href={`/companies/${company.id}`}>
-        <Card prefetch background={this.state.coverPhoto}>
-          <h1>{ReactHtmlParser(companyTitle)}</h1>
+      <Link
+        as={`/posts/${company.slug}`}
+        href={`post?id=${company.id}`}
+      >
+        <Card background={this.state.coverPhoto}>
+          <h1>{companyTitle}</h1>
         </Card>
       </Link>
     );

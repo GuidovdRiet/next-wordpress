@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -126,27 +126,26 @@ function (_Component) {
     key: "render",
     value: function render() {
       var company = this.props.company;
-      var companyTitle = company.title.rendered.companyTitle;
+      var companyTitle = __WEBPACK_IMPORTED_MODULE_2_react_html_parser___default()(company.title.rendered);
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_next_link___default.a, {
-        as: "/companies/".concat(company.id),
-        href: "/companies/".concat(company.id),
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 18
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Card, {
-        prefetch: true,
-        background: this.state.coverPhoto,
+        as: "/posts/".concat(company.slug),
+        href: "post?id=".concat(company.id),
         __source: {
           fileName: _jsxFileName,
           lineNumber: 19
         }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Card, {
+        background: this.state.coverPhoto,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23
+        }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 24
         }
-      }, __WEBPACK_IMPORTED_MODULE_2_react_html_parser___default()(companyTitle))));
+      }, companyTitle)));
     }
   }]);
 
@@ -293,7 +292,7 @@ var CompanyCardsWrapper = __WEBPACK_IMPORTED_MODULE_2_styled_components___defaul
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/companies.js");

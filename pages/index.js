@@ -15,7 +15,7 @@ class Index extends Component {
   render() {
     return (
       <div>
-        <h1>Batman TV Shows</h1>
+        <h1>Demo Next.js | WP</h1>
         <ul>{console.log(this.props.data.acf)}</ul>
       </div>
     );
