@@ -126,13 +126,23 @@ function (_Component) {
   _createClass(Company, [{
     key: "render",
     value: function render() {
-      // const company = this.props['0'];
+      var company = this.props['0'];
       return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 20
         }
-      });
+      }, __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("h1", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21
+        }
+      }, company.title.rendered), __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        }
+      }, "id: ".concat(company.id)));
     }
   }], [{
     key: "getInitialProps",

@@ -15,11 +15,11 @@ class Company extends Component {
   }
 
   render() {
-    // const company = this.props['0'];
+    const company = this.props['0'];
     return (
       <div>
-        {/* <h1>{company.title.rendered}</h1>
-        <p>{`id: ${company.id}`}</p> */}
+        <h1>{company.title.rendered}</h1>
+        <p>{`id: ${company.id}`}</p>
       </div>
     );
   }
