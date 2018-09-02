@@ -129,7 +129,7 @@ function (_Component) {
       var companyTitle = __WEBPACK_IMPORTED_MODULE_2_react_html_parser___default()(company.title.rendered);
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_next_link___default.a, {
         as: "/companies/".concat(company.slug),
-        href: "company?id=".concat(company.slug),
+        href: "/company?slug=".concat(company.slug),
         __source: {
           fileName: _jsxFileName,
           lineNumber: 19

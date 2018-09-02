@@ -18,7 +18,7 @@ class CompanyCard extends Component {
     return (
       <Link
         as={`/companies/${company.slug}`}
-        href={`company?id=${company.slug}`}
+        href={`/company?slug=${company.slug}`}
       >
         <Card background={this.state.coverPhoto}>
           <h1>{companyTitle}</h1>

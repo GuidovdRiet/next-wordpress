@@ -83,6 +83,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_router__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch__);
 
 var _jsxFileName = "/Applications/MAMP/htdocs/wordpress-next/pages/company.js";
 
@@ -109,6 +111,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var Company =
 /*#__PURE__*/
 function (_Component) {
@@ -123,38 +126,28 @@ function (_Component) {
   _createClass(Company, [{
     key: "render",
     value: function render() {
-      var company = this.props['0'];
+      // const company = this.props['0'];
       return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 15
+          lineNumber: 20
         }
-      }, __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("h1", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 16
-        }
-      }, company.title.rendered), __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 17
-        }
-      }, "id: ".concat(company.id)));
+      });
     }
   }], [{
     key: "getInitialProps",
     value: function () {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
-      __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(_ref) {
-        var query, data, company;
+      __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(context) {
+        var slug, data, company;
         return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                query = _ref.query;
+                slug = context.query.slug;
                 _context.next = 3;
-                return fetch("http://headless.consumentenwebsite.nl/wp-json/wp/v2/company?slug=".concat(query.slug));
+                return __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default()("http://headless.consumentenwebsite.nl/wp-json/wp/v2/company?slug=".concat(slug));
 
               case 3:
                 data = _context.sent;
@@ -198,6 +191,13 @@ module.exports = __webpack_require__("./pages/company.js");
 /***/ (function(module, exports) {
 
 module.exports = require("@babel/runtime/regenerator");
+
+/***/ }),
+
+/***/ "isomorphic-unfetch":
+/***/ (function(module, exports) {
+
+module.exports = require("isomorphic-unfetch");
 
 /***/ }),
 
