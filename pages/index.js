@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-unfetch';
-import Context from '../components/Context/Context';
+import withContext from '../components/Context/withContext';
 
 class Index extends Component {
   static async getInitialProps() {
@@ -16,17 +16,10 @@ class Index extends Component {
   render() {
     return (
       <div>
-        <Context.Consumer>
-          {value => (
-            <div>
-              <h1>Demo Next.js | WP</h1>
-              <ul>{console.log(value.state)}</ul>
-            </div>
-          )}
-        </Context.Consumer>
+        <h1>Demo Next.js | WP</h1>
       </div>
     );
   }
 }
 
-export default Index;
+export default withContext(Index);
