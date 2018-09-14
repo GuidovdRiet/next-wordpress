@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import CompanyCard from '../components/CompanyCard';
+import CompanyCard from '../components/Companies/CompanyCard';
 
 class Companies extends Component {
   static async getInitialProps() {
