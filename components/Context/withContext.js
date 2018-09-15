@@ -3,9 +3,12 @@ import Context from './Context';
 
 const withContext = Component => {
   return class extends React.Component {
+    static getInitialProps(ctx) {
+      if (Component.getInitialProps) return Component.getInitialProps(ctx);
+    }
     render() {
       return (
-        <Context.Consumer>{value => <Component {...value} />}</Context.Consumer>
+        <Context.Consumer>{state => <Component {...state} />}</Context.Consumer>
       );
     }
   };

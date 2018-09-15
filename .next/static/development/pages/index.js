@@ -65,9 +65,14 @@ var withContext = function withContext(Component) {
       _createClass(_class, [{
         key: "render",
         value: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Context__WEBPACK_IMPORTED_MODULE_1__["default"].Consumer, null, function (value) {
-            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, value);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Context__WEBPACK_IMPORTED_MODULE_1__["default"].Consumer, null, function (state) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, state);
           });
+        }
+      }], [{
+        key: "getInitialProps",
+        value: function getInitialProps(ctx) {
+          if (Component.getInitialProps) return Component.getInitialProps(ctx);
         }
       }]);
 
@@ -1064,27 +1069,49 @@ function (_Component) {
     value: function () {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var res, data;
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+        var lang, wpPageRoute, homePage, data, pageData, pageLangCode, translation;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()("http://headless.consumentenwebsite.nl/wp-json/acf/v3/pages/1003");
+                lang = context.query.lang;
+                wpPageRoute = context.query.wpPageRoute;
+                _context.next = 4;
+                return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()("".concat(wpPageRoute, "?slug=home"));
 
-              case 2:
-                res = _context.sent;
-                _context.next = 5;
-                return res.json();
-
-              case 5:
-                data = _context.sent;
-                return _context.abrupt("return", {
-                  data: data
-                });
+              case 4:
+                homePage = _context.sent;
+                _context.next = 7;
+                return homePage.json();
 
               case 7:
+                data = _context.sent;
+                pageData = data[0];
+
+                if (!lang) {
+                  _context.next = 17;
+                  break;
+                }
+
+                pageLangCode = pageData.translations["".concat(lang)];
+                _context.next = 13;
+                return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()("".concat(wpPageRoute, "/").concat(pageLangCode));
+
+              case 13:
+                translation = _context.sent;
+                _context.next = 16;
+                return translation.json();
+
+              case 16:
+                pageData = _context.sent;
+
+              case 17:
+                return _context.abrupt("return", {
+                  pageData: pageData
+                });
+
+              case 18:
               case "end":
                 return _context.stop();
             }
@@ -1092,7 +1119,7 @@ function (_Component) {
         }, _callee, this);
       }));
 
-      return function getInitialProps() {
+      return function getInitialProps(_x) {
         return _getInitialProps.apply(this, arguments);
       };
     }()
@@ -1101,7 +1128,7 @@ function (_Component) {
   return Index;
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_components_Context_withContext__WEBPACK_IMPORTED_MODULE_3__["default"])(Index));
+/* harmony default export */ __webpack_exports__["default"] = (Index);
     (function (Component, route) {
       if(!Component) return
       if (false) {}

@@ -9,7 +9,7 @@ class Companies extends Component {
     );
     const companies = await data.json();
     return {
-      companies
+      companies,
     };
   }
 

@@ -4,11 +4,29 @@ const next = require('next');
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
+const wpPageRoute = 'http://headless.consumentenwebsite.nl/wp-json/wp/v2/pages';
 
 app
   .prepare()
   .then(() => {
     const server = express();
+
+    server.get('/', (req, res) => {
+      const actualPage = '/';
+      const queryParams = {
+        wpPageRoute,
+      };
+      app.render(req, res, actualPage, queryParams);
+    });
+
+    server.get('/:langcode', (req, res) => {
+      const actualPage = '/';
+      const queryParams = {
+        lang: req.params.langcode,
+        wpPageRoute,
+      };
+      app.render(req, res, actualPage, queryParams);
+    });
 
     server.get('/companies/:slug', (req, res) => {
       const actualPage = '/company';

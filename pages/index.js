@@ -3,13 +3,20 @@ import fetch from 'isomorphic-unfetch';
 import withContext from '../components/Context/withContext';
 
 class Index extends Component {
-  static async getInitialProps() {
-    const res = await fetch(
-      `http://headless.consumentenwebsite.nl/wp-json/acf/v3/pages/1003`
-    );
-    const data = await res.json();
+  static async getInitialProps(context) {
+    const { lang } = context.query;
+    const { wpPageRoute } = context.query;
+    const homePage = await fetch(`${wpPageRoute}?slug=home`);
+    let data = await homePage.json();
+    let pageData = data[0];
+    
+    if (lang) {
+      const pageLangCode = pageData.translations[`${lang}`];
+      const translation = await fetch(`${wpPageRoute}/${pageLangCode}`);
+      pageData = await translation.json();
+    }
     return {
-      data,
+      pageData,
     };
   }
 
@@ -22,4 +29,4 @@ class Index extends Component {
   }
 }
 
-export default withContext(Index);
+export default Index;
