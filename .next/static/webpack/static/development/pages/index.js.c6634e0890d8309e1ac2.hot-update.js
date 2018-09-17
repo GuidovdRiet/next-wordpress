@@ -15,18 +15,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! isomorphic-unfetch */ "./node_modules/isomorphic-unfetch/browser.js");
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_Context_withContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Context/withContext */ "./components/Context/withContext.js");
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -47,7 +38,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -74,49 +64,52 @@ function (_Component) {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
-        var lang, wpPageRoute, homePage, data, pageData, pageLangCode, translation;
+        var _context$query, lang, wpPageRoute, homePage, data, pageLangCode, translation, pageData;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                lang = context.query.lang;
-                wpPageRoute = context.query.wpPageRoute;
-                _context.next = 4;
+                _context$query = context.query, lang = _context$query.lang, wpPageRoute = _context$query.wpPageRoute;
+                _context.next = 3;
                 return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()("".concat(wpPageRoute, "?slug=home"));
 
-              case 4:
+              case 3:
                 homePage = _context.sent;
-                _context.next = 7;
+                _context.next = 6;
                 return homePage.json();
 
-              case 7:
+              case 6:
                 data = _context.sent;
-                pageData = _toConsumableArray(data);
-                console.log(pageData);
 
-                if (!lang) {
-                  _context.next = 18;
+                if (!(lang !== 'nl')) {
+                  _context.next = 16;
                   break;
                 }
 
-                pageLangCode = pageData.translations["".concat(lang)];
-                _context.next = 14;
+                console.log(data);
+                pageLangCode = data.translations["".concat(lang)];
+                _context.next = 12;
                 return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()("".concat(wpPageRoute, "/").concat(pageLangCode));
 
-              case 14:
+              case 12:
                 translation = _context.sent;
-                _context.next = 17;
+                _context.next = 15;
                 return translation.json();
 
-              case 17:
-                pageData = _context.sent;
+              case 15:
+                data = _context.sent;
 
-              case 18:
+              case 16:
+                pageData = {
+                  data: data,
+                  lang: lang
+                };
                 return _context.abrupt("return", {
                   pageData: pageData
                 });
 
-              case 19:
+              case 18:
               case "end":
                 return _context.stop();
             }
@@ -157,4 +150,4 @@ function (_Component) {
 /***/ })
 
 })
-//# sourceMappingURL=index.js.600ddc201a2c99aa56dd.hot-update.js.map
+//# sourceMappingURL=index.js.c6634e0890d8309e1ac2.hot-update.js.map

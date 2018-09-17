@@ -5,6 +5,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const wpPageRoute = 'http://headless.consumentenwebsite.nl/wp-json/wp/v2/pages';
+const defaultLang = 'nl';
 
 app
   .prepare()
@@ -15,6 +16,7 @@ app
       const actualPage = '/';
       const queryParams = {
         wpPageRoute,
+        lang: defaultLang,
       };
       app.render(req, res, actualPage, queryParams);
     });
@@ -22,8 +24,8 @@ app
     server.get('/:langcode', (req, res) => {
       const actualPage = '/';
       const queryParams = {
-        lang: req.params.langcode,
         wpPageRoute,
+        lang: req.params.langcode,
       };
       app.render(req, res, actualPage, queryParams);
     });
@@ -35,6 +37,13 @@ app
       };
       app.render(req, res, actualPage, queryParams);
     });
+
+    const faviconOptions = {
+      root: __dirname + '/static/',
+    };
+    server.get('/favicon.ico', (req, res) =>
+      res.status(200).sendFile('favicon.ico', faviconOptions)
+    );
 
     server.get('*', (req, res) => {
       return handle(req, res);

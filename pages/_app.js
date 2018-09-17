@@ -10,18 +10,20 @@ class MyApp extends App {
     let pageProps = {};
     if (Component.getInitialProps)
       pageProps = await Component.getInitialProps(ctx);
-    const menu = await fetch(
-      `http://headless.consumentenwebsite.nl/wp-json/wp-api-menus/v2/menus/68`
+    const { lang } = pageProps.pageData;
+    const pagesData = await fetch(
+      `http://headless.consumentenwebsite.nl/wp-json/wp/v2/pages?lang=${lang}`
     );
     const header = await fetch(
       `http://headless.consumentenwebsite.nl/wp-json/acf/v3/theme_styling/81`
     );
-    const navItems = await menu.json();
+
+    const pages = await pagesData.json();
     const headerData = await header.json();
 
     return {
       header: {
-        navigation: navItems.items,
+        pages,
         headerData,
       },
       pageProps,

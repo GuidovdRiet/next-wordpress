@@ -6,9 +6,15 @@ class Provider extends Component {
     lang: 'en',
   };
 
+  setLanguage(language) {
+    this.setState({ lang: language });
+  }
+
   render() {
     return (
-      <Context.Provider value={{ state: this.state }}>
+      <Context.Provider
+        value={{ state: this.state, setLanguage: this.setLanguage }}
+      >
         {this.props.children}
       </Context.Provider>
     );

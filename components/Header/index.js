@@ -4,9 +4,10 @@ import styled from 'styled-components';
 
 class Header extends Component {
   renderNavigationMenu() {
-    return this.props.navigation.map(menuItem => (
-      <Link prefetch key={menuItem.id} href={`/${menuItem.object_slug}`}>
-        <a>{menuItem.title}</a>
+    const { pages } = this.props;
+    return pages.map(page => (
+      <Link prefetch key={page.id} href={`/${page.slug}`}>
+        <a>{page.title.rendered}</a>
       </Link>
     ));
   }
@@ -35,7 +36,7 @@ const Wrapper = styled.div`
   & > a {
     color: rgba(68, 69, 69, 0.6);
     text-decoration: none;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     &:hover {
       color: rgba(68, 69, 69, 1);
     }

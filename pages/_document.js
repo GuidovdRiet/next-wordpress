@@ -21,6 +21,7 @@ class MyCustomDocument extends Document {
       <html>
         <Head>
           <title>Chainels | WP demo</title>
+          <link rel="icon" type="image/x-icon" href="../static/favicon.ico" />
           {this.props.styleTags}
         </Head>
         <body>

@@ -171,11 +171,19 @@ function (_Component) {
   }
 
   _createClass(Provider, [{
+    key: "setLanguage",
+    value: function setLanguage(language) {
+      this.setState({
+        lang: language
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Context__WEBPACK_IMPORTED_MODULE_1__["default"].Provider, {
         value: {
-          state: this.state
+          state: this.state,
+          setLanguage: this.setLanguage
         }
       }, this.props.children);
     }
@@ -260,12 +268,13 @@ function (_Component) {
   _createClass(Header, [{
     key: "renderNavigationMenu",
     value: function renderNavigationMenu() {
-      return this.props.navigation.map(function (menuItem) {
+      var pages = this.props.pages;
+      return pages.map(function (page) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
           prefetch: true,
-          key: menuItem.id,
-          href: "/".concat(menuItem.object_slug)
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, menuItem.title));
+          key: page.id,
+          href: "/".concat(page.slug)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, page.title.rendered));
       });
     }
   }, {
@@ -289,7 +298,7 @@ function (_Component) {
 var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
   displayName: "Header__Wrapper",
   componentId: "j7tm4g-0"
-})(["background:", ";color:white;display:flex;justify-content:space-between;align-items:center;padding:20px 40px;margin-bottom:40px;& > a{color:rgba(68,69,69,0.6);text-decoration:none;transition:all .3s ease-in-out;&:hover{color:rgba(68,69,69,1);}}"], function (props) {
+})(["background:", ";color:white;display:flex;justify-content:space-between;align-items:center;padding:20px 40px;margin-bottom:40px;& > a{color:rgba(68,69,69,0.6);text-decoration:none;transition:all 0.3s ease-in-out;&:hover{color:rgba(68,69,69,1);}}"], function (props) {
   return props.background;
 });
 var Logo = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
@@ -378,7 +387,7 @@ function (_App) {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref) {
-        var Component, ctx, pageProps, menu, header, navItems, headerData;
+        var Component, ctx, pageProps, lang, pagesData, header, pages, headerData;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -398,35 +407,36 @@ function (_App) {
                 pageProps = _context.sent;
 
               case 6:
-                _context.next = 8;
-                return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()("http://headless.consumentenwebsite.nl/wp-json/wp-api-menus/v2/menus/68");
+                lang = pageProps.pageData.lang;
+                _context.next = 9;
+                return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()("http://headless.consumentenwebsite.nl/wp-json/wp/v2/pages?lang=".concat(lang));
 
-              case 8:
-                menu = _context.sent;
-                _context.next = 11;
+              case 9:
+                pagesData = _context.sent;
+                _context.next = 12;
                 return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()("http://headless.consumentenwebsite.nl/wp-json/acf/v3/theme_styling/81");
 
-              case 11:
+              case 12:
                 header = _context.sent;
-                _context.next = 14;
-                return menu.json();
+                _context.next = 15;
+                return pagesData.json();
 
-              case 14:
-                navItems = _context.sent;
-                _context.next = 17;
+              case 15:
+                pages = _context.sent;
+                _context.next = 18;
                 return header.json();
 
-              case 17:
+              case 18:
                 headerData = _context.sent;
                 return _context.abrupt("return", {
                   header: {
-                    navigation: navItems.items,
+                    pages: pages,
                     headerData: headerData
                   },
                   pageProps: pageProps
                 });
 
-              case 19:
+              case 20:
               case "end":
                 return _context.stop();
             }
