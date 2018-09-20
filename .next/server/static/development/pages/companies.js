@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -155,7 +155,8 @@ function (_Component) {
     value: function render() {
       var company = this.props.company;
       var companyTitle = react_html_parser__WEBPACK_IMPORTED_MODULE_2___default()(company.title.rendered);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_3___default.a // TODO: Add current language from state
+      , {
         as: "/companies/".concat(company.slug),
         href: "/company?slug=".concat(company.slug, "&lang=nl")
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Card, {
@@ -307,7 +308,7 @@ var CompanyCardsWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2___default
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!**********************************!*\
   !*** multi ./pages/companies.js ***!
   \**********************************/

@@ -61,7 +61,8 @@ function (_Component) {
     value: function render() {
       var company = this.props.company;
       var companyTitle = react_html_parser__WEBPACK_IMPORTED_MODULE_2___default()(company.title.rendered);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_3___default.a // TODO: Add current language from state
+      , {
         as: "/companies/".concat(company.slug),
         href: "/company?slug=".concat(company.slug, "&lang=nl")
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Card, {
@@ -11488,7 +11489,7 @@ Tokenizer.prototype._emitPartial = function(value){
 module.exports = Stream;
 
 var Parser = __webpack_require__(/*! ./Parser.js */ "./node_modules/htmlparser2/lib/Parser.js"),
-    WritableStream = __webpack_require__(/*! stream */ "./node_modules/stream-browserify/index.js").Writable || __webpack_require__(/*! readable-stream */ 6).Writable,
+    WritableStream = __webpack_require__(/*! stream */ "./node_modules/stream-browserify/index.js").Writable || __webpack_require__(/*! readable-stream */ 7).Writable,
     StringDecoder = __webpack_require__(/*! string_decoder */ "./node_modules/string_decoder/lib/string_decoder.js").StringDecoder,
     Buffer = __webpack_require__(/*! buffer */ "./node_modules/buffer/index.js").Buffer;
 
@@ -17070,7 +17071,7 @@ util.inherits = __webpack_require__(/*! inherits */ "./node_modules/inherits/inh
 /*</replacement>*/
 
 /*<replacement>*/
-var debugUtil = __webpack_require__(/*! util */ 4);
+var debugUtil = __webpack_require__(/*! util */ 5);
 var debug = void 0;
 if (debugUtil && debugUtil.debuglog) {
   debug = debugUtil.debuglog('stream');
@@ -18959,7 +18960,7 @@ Writable.prototype._destroy = function (err, cb) {
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/safe-buffer/index.js").Buffer;
-var util = __webpack_require__(/*! util */ 5);
+var util = __webpack_require__(/*! util */ 6);
 
 function copyBuffer(src, target, offset) {
   src.copy(target, offset);
@@ -25215,7 +25216,7 @@ var CompanyCardsWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["defaul
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!**********************************!*\
   !*** multi ./pages/companies.js ***!
   \**********************************/
@@ -25226,17 +25227,6 @@ __NEXT_REGISTER_PAGE('/companies', function() {
 module.exports = __webpack_require__(/*! ./pages/companies.js */"./pages/companies.js");
 
 return { page: module.exports.default }});
-
-/***/ }),
-
-/***/ 4:
-/*!**********************!*\
-  !*** util (ignored) ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* (ignored) */
 
 /***/ }),
 
@@ -25252,6 +25242,17 @@ return { page: module.exports.default }});
 /***/ }),
 
 /***/ 6:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 7:
 /*!*********************************!*\
   !*** readable-stream (ignored) ***!
   \*********************************/
@@ -25273,5 +25274,5 @@ module.exports = dll_b22318defbc693d80385;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]));;
+},[[4,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=companies.js.map

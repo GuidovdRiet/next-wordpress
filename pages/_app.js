@@ -20,7 +20,6 @@ class MyApp extends App {
       `http://headless.consumentenwebsite.nl/wp-json/acf/v3/theme_styling/81`
     );
 
-    
     const pages = await pagesData.json();
     const headerData = await header.json();
 

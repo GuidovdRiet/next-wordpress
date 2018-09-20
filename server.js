@@ -36,8 +36,13 @@ app
       const queryParams = {
         pagesEndpoint,
         lang: req.params.lang || defaultLang,
+        defaultLang,
       };
       app.render(req, res, actualPage, queryParams);
+    });
+
+    server.get('*', (req, res) => {
+      return handle(req, res);
     });
 
     const faviconOptions = {
@@ -46,10 +51,6 @@ app
     server.get('/favicon.ico', (req, res) =>
       res.status(200).sendFile('favicon.ico', faviconOptions)
     );
-
-    server.get('*', (req, res) => {
-      return handle(req, res);
-    });
 
     server.listen(3000, err => {
       if (err) throw err;

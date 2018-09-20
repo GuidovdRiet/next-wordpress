@@ -5,8 +5,8 @@ import styled from 'styled-components';
 class Header extends Component {
   renderNavigationMenu() {
     const { pages } = this.props;
+    // TODO: Add current language from state
     return pages.map(page => (
-      // add current language from state
       <Link
         prefetch
         key={page.id}

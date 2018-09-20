@@ -10151,7 +10151,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 7:
+/***/ 8:
 /*!********************************!*\
   !*** multi ./pages/company.js ***!
   \********************************/
@@ -10176,5 +10176,5 @@ module.exports = dll_b22318defbc693d80385;
 
 /***/ })
 
-},[[7,"static/runtime/webpack.js"]]]));;
+},[[8,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=company.js.map

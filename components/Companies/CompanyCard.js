@@ -17,6 +17,7 @@ class CompanyCard extends Component {
 
     return (
       <Link
+        // TODO: Add current language from state
         as={`/companies/${company.slug}`}
         href={`/company?slug=${company.slug}&lang=nl`}
       >
