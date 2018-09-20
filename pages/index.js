@@ -40,6 +40,7 @@ class Index extends Component {
       <div>
         <h1>Demo Next.js | WP</h1>
       </div>
+      // How to implement the sections of the page?
     );
   }
 }

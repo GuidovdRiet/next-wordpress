@@ -14,11 +14,12 @@ app
   .then(() => {
     const server = express();
 
-    server.get('/:lang?/companies/:slug', (req, res) => {
-      const actualPage = '/company';
+    server.get('/:lang?/:slug', (req, res) => {
+      const actualPage = '/page';
       const queryParams = {
         lang: req.params.lang || defaultLang,
         slug: req.params.slug,
+        pagesEndpoint
       };
       app.render(req, res, actualPage, queryParams);
     });
@@ -27,6 +28,15 @@ app
       const actualPage = '/companies';
       const queryParams = {
         lang: req.params.lang || defaultLang,
+      };
+      app.render(req, res, actualPage, queryParams);
+    });
+
+    server.get('/:lang?/companies/:slug', (req, res) => {
+      const actualPage = '/company';
+      const queryParams = {
+        lang: req.params.lang || defaultLang,
+        slug: req.params.slug,
       };
       app.render(req, res, actualPage, queryParams);
     });

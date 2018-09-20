@@ -287,9 +287,12 @@ function (_Component) {
           logo = _this$props$headerDat.logo;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Wrapper, {
         background: background
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Logo, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        as: "/",
+        href: "/"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Logo, {
         logo: logo
-      }), this.renderNavigationMenu());
+      }))), this.renderNavigationMenu());
     }
   }]);
 

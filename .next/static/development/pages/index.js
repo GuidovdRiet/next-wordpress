@@ -5875,8 +5875,6 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/run
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/inherits.js"));
 
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/defineProperty.js"));
-
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/next/node_modules/prop-types/index.js"));
@@ -5932,9 +5930,13 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = Error;
-(0, _defineProperty2.default)(Error, "propTypes", {
-  statusCode: _propTypes.default.number
-});
+
+if (true) {
+  Error.propTypes = {
+    statusCode: _propTypes.default.number
+  };
+}
+
 var styles = {
   error: {
     color: '#000',
@@ -7420,7 +7422,8 @@ function (_Component) {
         });
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Demo Next.js | WP"));
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Demo Next.js | WP")) // How to implement the sections of the page?
+      ;
     }
   }], [{
     key: "getInitialProps",
@@ -7518,7 +7521,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
@@ -7543,5 +7546,5 @@ module.exports = dll_b22318defbc693d80385;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]));;
+},[[4,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=index.js.map

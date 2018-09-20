@@ -6771,6 +6771,8 @@ var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/asyncToGenerator */ "./node_modules/@babel/runtime-corejs2/helpers/asyncToGenerator.js"));
 
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/slicedToArray.js"));
+
 var _promise = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js"));
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
@@ -6831,9 +6833,11 @@ var asPath = (0, _utils.getURL)();
 var pageLoader = new _pageLoader.default(buildId, prefix);
 
 window.__NEXT_LOADED_PAGES__.forEach(function (_ref) {
-  var route = _ref.route,
-      fn = _ref.fn;
-  pageLoader.registerPage(route, fn);
+  var _ref2 = (0, _slicedToArray2.default)(_ref, 2),
+      r = _ref2[0],
+      f = _ref2[1];
+
+  pageLoader.registerPage(r, f);
 });
 
 delete window.__NEXT_LOADED_PAGES__;
@@ -6856,7 +6860,7 @@ var _default =
 (0, _asyncToGenerator2.default)(
 /*#__PURE__*/
 _regenerator.default.mark(function _callee() {
-  var _ref3,
+  var _ref4,
       passedWebpackHMR,
       initialErr,
       hash,
@@ -6866,7 +6870,7 @@ _regenerator.default.mark(function _callee() {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          _ref3 = _args.length > 0 && _args[0] !== undefined ? _args[0] : {}, passedWebpackHMR = _ref3.webpackHMR;
+          _ref4 = _args.length > 0 && _args[0] !== undefined ? _args[0] : {}, passedWebpackHMR = _ref4.webpackHMR;
 
           // This makes sure this specific line is removed in production
           if (true) {
@@ -6921,12 +6925,12 @@ _regenerator.default.mark(function _callee() {
             ErrorComponent: ErrorComponent,
             err: initialErr
           });
-          router.subscribe(function (_ref4) {
-            var App = _ref4.App,
-                Component = _ref4.Component,
-                props = _ref4.props,
-                hash = _ref4.hash,
-                err = _ref4.err;
+          router.subscribe(function (_ref5) {
+            var App = _ref5.App,
+                Component = _ref5.Component,
+                props = _ref5.props,
+                hash = _ref5.hash,
+                err = _ref5.err;
             render({
               App: App,
               Component: Component,
@@ -7099,14 +7103,14 @@ function doRender(_x3) {
 function _doRender() {
   _doRender = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
-  _regenerator.default.mark(function _callee5(_ref5) {
-    var App, Component, props, hash, err, _ref5$emitter, emitterProp, _router, _pathname, _query, _asPath, appProps, onError;
+  _regenerator.default.mark(function _callee5(_ref6) {
+    var App, Component, props, hash, err, _ref6$emitter, emitterProp, _router, _pathname, _query, _asPath, appProps, onError;
 
     return _regenerator.default.wrap(function _callee5$(_context5) {
       while (1) {
         switch (_context5.prev = _context5.next) {
           case 0:
-            App = _ref5.App, Component = _ref5.Component, props = _ref5.props, hash = _ref5.hash, err = _ref5.err, _ref5$emitter = _ref5.emitter, emitterProp = _ref5$emitter === void 0 ? emitter : _ref5$emitter;
+            App = _ref6.App, Component = _ref6.Component, props = _ref6.props, hash = _ref6.hash, err = _ref6.err, _ref6$emitter = _ref6.emitter, emitterProp = _ref6$emitter === void 0 ? emitter : _ref6$emitter;
 
             if (!(!props && Component && Component !== ErrorComponent && lastAppProps.Component === ErrorComponent)) {
               _context5.next = 6;

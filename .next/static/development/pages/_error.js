@@ -5002,8 +5002,6 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/run
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/inherits.js"));
 
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/defineProperty.js"));
-
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/next/node_modules/prop-types/index.js"));
@@ -5059,9 +5057,13 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = Error;
-(0, _defineProperty2.default)(Error, "propTypes", {
-  statusCode: _propTypes.default.number
-});
+
+if (true) {
+  Error.propTypes = {
+    statusCode: _propTypes.default.number
+  };
+}
+
 var styles = {
   error: {
     color: '#000',

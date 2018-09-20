@@ -22,7 +22,11 @@ class Header extends Component {
     const { background, logo } = this.props.headerData.acf;
     return (
       <Wrapper background={background}>
-        <Logo logo={logo} />
+        <Link as='/' href="/">
+          <a>
+            {<Logo logo={logo} />}
+          </a>
+        </Link>
         {this.renderNavigationMenu()}
       </Wrapper>
     );

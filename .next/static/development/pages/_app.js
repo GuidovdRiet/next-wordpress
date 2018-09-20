@@ -193,9 +193,12 @@ function (_Component) {
           logo = _this$props$headerDat.logo;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Wrapper, {
         background: background
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Logo, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        as: "/",
+        href: "/"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Logo, {
         logo: logo
-      }), this.renderNavigationMenu());
+      }))), this.renderNavigationMenu());
     }
   }]);
 
@@ -6789,8 +6792,6 @@ var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_mo
 
 var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/next/node_modules/prop-types/index.js"));
 
-var _propTypesExact = _interopRequireDefault(__webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.js"));
-
 var _router = _interopRequireWildcard(__webpack_require__(/*! ./router */ "./node_modules/next/dist/lib/router/index.js"));
 
 var _utils = __webpack_require__(/*! ./utils */ "./node_modules/next/dist/lib/utils.js");
@@ -6972,24 +6973,30 @@ function (_Component) {
   return Link;
 }(_react.Component);
 
-(0, _defineProperty2.default)(Link, "propTypes", (0, _propTypesExact.default)({
-  href: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]).isRequired,
-  as: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
-  prefetch: _propTypes.default.bool,
-  replace: _propTypes.default.bool,
-  shallow: _propTypes.default.bool,
-  passHref: _propTypes.default.bool,
-  scroll: _propTypes.default.bool,
-  children: _propTypes.default.oneOfType([_propTypes.default.element, function (props, propName) {
-    var value = props[propName];
+if (true) {
+  // This module gets removed by webpack.IgnorePlugin
+  var exact = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.js");
 
-    if (typeof value === 'string') {
-      warnLink("Warning: You're using a string directly inside <Link>. This usage has been deprecated. Please add an <a> tag as child of <Link>");
-    }
+  Link.propTypes = exact({
+    href: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]).isRequired,
+    as: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
+    prefetch: _propTypes.default.bool,
+    replace: _propTypes.default.bool,
+    shallow: _propTypes.default.bool,
+    passHref: _propTypes.default.bool,
+    scroll: _propTypes.default.bool,
+    children: _propTypes.default.oneOfType([_propTypes.default.element, function (props, propName) {
+      var value = props[propName];
 
-    return null;
-  }]).isRequired
-}));
+      if (typeof value === 'string') {
+        warnLink("Warning: You're using a string directly inside <Link>. This usage has been deprecated. Please add an <a> tag as child of <Link>");
+      }
+
+      return null;
+    }]).isRequired
+  });
+}
+
 var _default = Link;
 exports.default = _default;
 
