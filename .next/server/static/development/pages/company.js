@@ -88,15 +88,15 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./pages/index.js":
-/*!************************!*\
-  !*** ./pages/index.js ***!
-  \************************/
+/***/ "./pages/company.js":
+/*!**************************!*\
+  !*** ./pages/company.js ***!
+  \**************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -104,13 +104,19 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3__);
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -135,21 +141,23 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var Index =
+
+var Company =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(Index, _Component);
+  _inherits(Company, _Component);
 
-  function Index() {
-    _classCallCheck(this, Index);
+  function Company() {
+    _classCallCheck(this, Company);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Index).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Company).apply(this, arguments));
   }
 
-  _createClass(Index, [{
+  _createClass(Company, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Demo Next.js | WP"));
+      var company = this.props.pageData['0'];
+      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", null, company.title.rendered), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "id: ".concat(company.id)));
     }
   }], [{
     key: "getInitialProps",
@@ -157,51 +165,31 @@ function (_Component) {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
-        var _context$query, lang, wpPageRoute, homePage, data, pageLangCode, translation, pageData;
+        var _context$query, slug, lang, data, company, pageData;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context$query = context.query, lang = _context$query.lang, wpPageRoute = _context$query.wpPageRoute;
+                _context$query = context.query, slug = _context$query.slug, lang = _context$query.lang;
                 _context.next = 3;
-                return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()("".concat(wpPageRoute, "?slug=home"));
+                return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()("http://headless.consumentenwebsite.nl/wp-json/wp/v2/company?slug=".concat(slug));
 
               case 3:
-                homePage = _context.sent;
+                data = _context.sent;
                 _context.next = 6;
-                return homePage.json();
+                return data.json();
 
               case 6:
-                data = _context.sent;
-
-                if (!(lang !== 'nl')) {
-                  _context.next = 15;
-                  break;
-                }
-
-                pageLangCode = data[0].translations["".concat(lang)];
-                _context.next = 11;
-                return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()("".concat(wpPageRoute, "/").concat(pageLangCode));
-
-              case 11:
-                translation = _context.sent;
-                _context.next = 14;
-                return translation.json();
-
-              case 14:
-                data = _context.sent;
-
-              case 15:
-                pageData = {
-                  data: data,
+                company = _context.sent;
+                pageData = _objectSpread({}, company, {
                   lang: lang
-                };
+                });
                 return _context.abrupt("return", {
                   pageData: pageData
                 });
 
-              case 17:
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -215,21 +203,21 @@ function (_Component) {
     }()
   }]);
 
-  return Index;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+  return Company;
+}(react__WEBPACK_IMPORTED_MODULE_2__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Index);
+/* harmony default export */ __webpack_exports__["default"] = (Object(next_router__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Company));
 
 /***/ }),
 
-/***/ 3:
-/*!******************************!*\
-  !*** multi ./pages/index.js ***!
-  \******************************/
+/***/ 4:
+/*!********************************!*\
+  !*** multi ./pages/company.js ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./pages/index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! ./pages/company.js */"./pages/company.js");
 
 
 /***/ }),
@@ -256,6 +244,17 @@ module.exports = require("isomorphic-unfetch");
 
 /***/ }),
 
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
+
+/***/ }),
+
 /***/ "react":
 /*!************************!*\
   !*** external "react" ***!
@@ -268,4 +267,4 @@ module.exports = require("react");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=company.js.map

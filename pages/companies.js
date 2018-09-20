@@ -3,18 +3,25 @@ import styled from 'styled-components';
 import CompanyCard from '../components/Companies/CompanyCard';
 
 class Companies extends Component {
-  static async getInitialProps() {
+  static async getInitialProps(context) {
+    const { lang } = context.query;
     const data = await fetch(
       'http://headless.consumentenwebsite.nl/wp-json/wp/v2/company'
     );
     const companies = await data.json();
-    return {
+
+    const pageData = {
       companies,
+      lang,
+    };
+
+    return {
+      pageData,
     };
   }
 
   renderCompanies() {
-    const { companies } = this.props;
+    const { companies } = this.props.pageData;
     return companies.map(company => (
       <CompanyCard key={company.id} company={company} />
     ));

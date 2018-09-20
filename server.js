@@ -4,7 +4,9 @@ const next = require('next');
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
-const wpPageRoute = 'http://headless.consumentenwebsite.nl/wp-json/wp/v2/pages';
+
+const baseEndpoint = 'http://headless.consumentenwebsite.nl/wp-json/wp/v2';
+const pagesEndpoint = `${baseEndpoint}/pages`;
 const defaultLang = 'nl';
 
 app
@@ -12,28 +14,28 @@ app
   .then(() => {
     const server = express();
 
-    server.get('/', (req, res) => {
-      const actualPage = '/';
-      const queryParams = {
-        wpPageRoute,
-        lang: defaultLang,
-      };
-      app.render(req, res, actualPage, queryParams);
-    });
-
-    server.get('/:langcode', (req, res) => {
-      const actualPage = '/';
-      const queryParams = {
-        wpPageRoute,
-        lang: req.params.langcode,
-      };
-      app.render(req, res, actualPage, queryParams);
-    });
-
-    server.get('/companies/:slug', (req, res) => {
+    server.get('/:lang?/companies/:slug', (req, res) => {
       const actualPage = '/company';
       const queryParams = {
+        lang: req.params.lang || defaultLang,
         slug: req.params.slug,
+      };
+      app.render(req, res, actualPage, queryParams);
+    });
+
+    server.get('/:lang?/companies', (req, res) => {
+      const actualPage = '/companies';
+      const queryParams = {
+        lang: req.params.lang || defaultLang,
+      };
+      app.render(req, res, actualPage, queryParams);
+    });
+
+    server.get('/:lang?', (req, res) => {
+      const actualPage = '/';
+      const queryParams = {
+        pagesEndpoint,
+        lang: req.params.lang || defaultLang,
       };
       app.render(req, res, actualPage, queryParams);
     });

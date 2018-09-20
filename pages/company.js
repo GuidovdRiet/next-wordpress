@@ -4,18 +4,24 @@ import fetch from 'isomorphic-unfetch';
 
 class Company extends Component {
   static async getInitialProps(context) {
-    const { slug } = context.query;
+    const { slug, lang } = context.query;
     const data = await fetch(
       `http://headless.consumentenwebsite.nl/wp-json/wp/v2/company?slug=${slug}`
     );
     const company = await data.json();
-    return {
+
+    const pageData = {
       ...company,
+      lang,
+    };
+
+    return {
+      pageData,
     };
   }
 
   render() {
-    const company = this.props['0'];
+    const company = this.props.pageData['0'];
     return (
       <div>
         <h1>{company.title.rendered}</h1>

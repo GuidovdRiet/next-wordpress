@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-unfetch';
+import withContext from '../components/Context/withContext';
 
 class Index extends Component {
   static async getInitialProps(context) {
-    const { lang, wpPageRoute } = context.query;
-    const homePage = await fetch(`${wpPageRoute}?slug=home`);
-    let data = await homePage.json();
+    const { lang, pagesEndpoint } = context.query;
+    const data = await fetch(`${pagesEndpoint}?slug=home`);
+    let homePageData = await data.json();
 
     if (lang !== 'nl') {
-      const pageLangCode = data[0].translations[`${lang}`];
-      const translation = await fetch(`${wpPageRoute}/${pageLangCode}`);
-      data = await translation.json();
+      const pageLangCode = homePageData[0].translations[`${lang}`];
+      const translation = await fetch(`${pagesEndpoint}/${pageLangCode}`);
+      homePageData = await translation.json();
     }
 
     const pageData = {
-      data,
+      homePageData,
       lang,
     };
 

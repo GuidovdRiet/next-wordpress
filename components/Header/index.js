@@ -6,7 +6,13 @@ class Header extends Component {
   renderNavigationMenu() {
     const { pages } = this.props;
     return pages.map(page => (
-      <Link prefetch key={page.id} href={`/${page.slug}`}>
+      // add current language from state
+      <Link
+        prefetch
+        key={page.id}
+        as={`/${page.slug}`}
+        href={`/${page.slug}?lang=nl`}
+      >
         <a>{page.title.rendered}</a>
       </Link>
     ));

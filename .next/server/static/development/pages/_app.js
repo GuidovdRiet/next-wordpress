@@ -270,11 +270,14 @@ function (_Component) {
     value: function renderNavigationMenu() {
       var pages = this.props.pages;
       return pages.map(function (page) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-          prefetch: true,
-          key: page.id,
-          href: "/".concat(page.slug)
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, page.title.rendered));
+        return (// add current language from state
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+            prefetch: true,
+            key: page.id,
+            as: "/".concat(page.slug),
+            href: "/".concat(page.slug, "?lang=nl")
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, page.title.rendered))
+        );
       });
     }
   }, {

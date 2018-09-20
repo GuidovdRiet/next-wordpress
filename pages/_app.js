@@ -10,7 +10,9 @@ class MyApp extends App {
     let pageProps = {};
     if (Component.getInitialProps)
       pageProps = await Component.getInitialProps(ctx);
+
     const { lang } = pageProps.pageData;
+
     const pagesData = await fetch(
       `http://headless.consumentenwebsite.nl/wp-json/wp/v2/pages?lang=${lang}`
     );
@@ -18,6 +20,7 @@ class MyApp extends App {
       `http://headless.consumentenwebsite.nl/wp-json/acf/v3/theme_styling/81`
     );
 
+    
     const pages = await pagesData.json();
     const headerData = await header.json();
 
