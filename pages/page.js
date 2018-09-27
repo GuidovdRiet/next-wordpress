@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import About from '../components/pages/About';
-import Chainels from '../components/pages/Chainels';
 
 class Page extends Component {
   static async getInitialProps(context) {
@@ -23,7 +22,6 @@ class Page extends Component {
     const { slug } = page;
     const pages = {
       about: <About {...page} />,
-      chainels: <Chainels {...page} />,
     };
     return pages[`${slug}`];
   }
